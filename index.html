@@ -219,35 +219,35 @@ let ideas=[`💡 Tips de ${t}`,`🔥 Sobre ${t}`,`❌ Errores en ${t}`];
 postRes.innerText=ideas[Math.floor(Math.random()*ideas.length)];
 }
 
-function genBio(){
+ function genBio(){
 
-  let t = document.getElementById("bioInput").value;
-  let tono = document.getElementById("tono").value;
+let t = document.getElementById("bioInput").value;
+let tono = document.getElementById("tono").value;
 
-  if(!t){
-    alert("Escribe un tema");
-    return;
-  }
+if(!t){
+alert("Escribe un tema");
+return;
+}
 
-  let plantillas = {
-    pro: [
-      "🚀 Experto en " + t,
-      "💼 Profesional de " + t,
-      "🔥 Estrategias de " + t
-    ],
-    fun: [
-      "😂 Viviendo con " + t,
-      "🎉 Amante de " + t,
-      "😎 Todo sobre " + t,
-      "🔥 Pasión por " + t
-    ],
-    aesthetic: [
-      "✨ " + t + " vibes",
-      "🌙 soñando en " + t,
-      "💫 estética " + t,
-      "🌸 mundo " + t
-    ]
-  };
+let plantillas = {
+pro: [
+"🚀 Experto en " + t,
+"💼 Profesional de " + t,
+"🔥 Estrategias de " + t
+],
+fun: [
+"😂 Viviendo con " + t,
+"🎉 Amante de " + t,
+"😎 Todo sobre " + t,
+"🔥 Pasión por " + t
+],
+aesthetic: [
+"✨ " + t + " vibes",
+"🌙 soñando en " + t,
+"💫 estética " + t,
+"🌸 mundo " + t
+]
+};
 
 let lista = plantillas[tono];
 
@@ -255,9 +255,8 @@ let bio = lista[Math.floor(Math.random() * lista.length)] + " | " +
           lista[Math.floor(Math.random() * lista.length)];
 
 document.getElementById("bioRes").innerText = bio;
-}
 
-  
+}
 
 function genCaption(){
 let t=capInput.value;
