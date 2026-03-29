@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8230338171949833"
+     crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IG Tools Pro</title>
+<meta name="description" content="Generador de hashtags, bios, captions y más para Instagram">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+/* HEADER INSTAGRAM STYLE */
+header {
+    text-align: center;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+}
+
+/* TABS */
+.tabs {
+    display: flex;
+    overflow-x: auto;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: none;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.tabs button.active {
+    color: #dd2a7b;
+    font-weight: bold;
+}
+
+/* CONTENIDO */
+.container {
+    padding: 15px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.tool {
+    display: none;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.tool.active {
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* BOTONES */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+}
+
+.main {
+    background: linear-gradient(45deg, #f58529, #dd2a7b);
+    color: white;
+}
+
+.copy {
+    background: #10b981;
+    color: white;
+}
+
+/* RESULTADO */
+.result {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+}
+
+/* ANUNCIOS */
+.ads {
+    background: #fff;
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px dashed #ccc;
+    font-size: 0.9rem;
+}
+</style>
+</head>
+
+<body>
+
+<header>📱 IG Tools Pro</header>
+
+<!-- ANUNCIO SUPERIOR -->
+<div class="ads">
+👉 Aquí va tu anuncio de Google AdSense
+</div>
+
+<div class="tabs">
+<button onclick="tab('hashtags')" class="active"># Hashtags</button>
+<button onclick="tab('nombres')">👤 Nombres</button>
+<button onclick="tab('posts')">✍️ Posts</button>
+<button onclick="tab('bios')">✨ Bios</button>
+<button onclick="tab('captions')">📸 Captions</button>
+<button onclick="tab('reels')">🎬 Reels</button>
+</div>
+
+<div class="container">
+
+<div id="hashtags" class="tool active">
+<input id="tagInput" placeholder="Ej: fitness">
+<button class="main" onclick="genHashtags()">Generar hashtags</button>
+<button class="copy" onclick="copiar('tagRes')">Copiar</button>
+<div id="tagRes" class="result"></div>
+</div>
+
+<div id="nombres" class="tool">
+<input id="nameInput" placeholder="Ej: viajes">
+<button class="main" onclick="genNames()">Generar nombres</button>
+<button class="copy" onclick="copiar('nameRes')">Copiar</button>
+<div id="nameRes" class="result"></div>
+</div>
+
+<div id="posts" class="tool">
+<input id="postInput" placeholder="Ej: moda">
+<button class="main" onclick="genPosts()">Generar ideas</button>
+<button class="copy" onclick="copiar('postRes')">Copiar</button>
+<div id="postRes" class="result"></div>
+</div>
+
+<div id="bios" class="tool">
+<input id="bioInput" placeholder="Ej: fitness">
+<select id="tono">
+<option value="pro">Profesional</option>
+<option value="fun">Divertido</option>
+<option value="aesthetic">Aesthetic</option>
+</select>
+<button class="main" onclick="genBio()">Generar bio</button>
+<button class="copy" onclick="copiar('bioRes')">Copiar</button>
+<div id="bioRes" class="result"></div>
+</div>
+
+<div id="captions" class="tool">
+<input id="capInput" placeholder="Ej: viaje">
+<button class="main" onclick="genCaption()">Generar caption</button>
+<button class="copy" onclick="copiar('capRes')">Copiar</button>
+<div id="capRes" class="result"></div>
+</div>
+
+<div id="reels" class="tool">
+<input id="reelInput" placeholder="Ej: fitness">
+<button class="main" onclick="genReel()">Generar idea</button>
+<button class="copy" onclick="copiar('reelRes')">Copiar</button>
+<div id="reelRes" class="result"></div>
+</div>
+
+</div>
+
+<!-- ANUNCIO INFERIOR -->
+<div class="ads">
+💰 Aquí puedes poner afiliados o banners
+</div>
+
+<script>
+function tab(id){
+document.querySelectorAll('.tool').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+event.target.classList.add('active');
+}
+
+function genHashtags(){
+let t=tagInput.value;
+tagRes.innerText=`#${t} #${t}life #${t}lover #viral #instagood`;
+}
+
+function genNames(){
+let t=nameInput.value;
+nameRes.innerHTML=`${t}Pro<br>Mundo${t}<br>${t}Vibes`;
+}
+
+function genPosts(){
+let t=postInput.value;
+let ideas=[`💡 Tips de ${t}`,`🔥 Sobre ${t}`,`❌ Errores en ${t}`];
+postRes.innerText=ideas[Math.floor(Math.random()*ideas.length)];
+}
+
+function genBio(){
+let t=bioInput.value;
+let tono=tono.value;
+let bios={
+pro:`🚀 Experto en ${t}`,
+fun:`😂 Viviendo ${t}`,
+aesthetic:`✨ ${t} vibes`
+};
+bioRes.innerText=bios[tono];
+}
+
+function genCaption(){
+let t=capInput.value;
+capRes.innerText=`📸 Viviendo ${t} al máximo 🔥`;
+}
+
+function genReel(){
+let t=reelInput.value;
+reelRes.innerText=`🎬 Idea: muestra tu rutina de ${t}`;
+}
+
+function copiar(id){
+let texto=document.getElementById(id).innerText;
+navigator.clipboard.writeText(texto);
+alert("Copiado");
+}
+</script>
+
+</body>
+</html>
